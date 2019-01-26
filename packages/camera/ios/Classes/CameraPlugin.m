@@ -92,6 +92,8 @@
 }
 
 - (UIImageOrientation)getImageRotation {
+  return _cameraPosition == AVCaptureDevicePositionFront ? UIImageOrientationLeftMirrored : UIImageOrientationRight;
+
   // Get the true device orientation out of the accelerometer.
   const CMQuaternion orientation = _motionManager.deviceMotion.attitude.quaternion;
   const double roll =
